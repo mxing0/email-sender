@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Outreach — Michael Xing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; padding: 16px; padding-bottom: 80px; }
+  h1 { font-size: 22px; text-align: center; margin: 12px 0 4px; }
+  .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 16px; }
+  .counter { text-align: center; font-size: 15px; color: #333; margin-bottom: 16px; font-weight: 600; }
+  .card { background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card.sent { opacity: 0.5; }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .prof { font-weight: 700; font-size: 16px; }
+  .uni { color: #666; font-size: 13px; margin-top: 2px; }
+  .badge { font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+  .unsent { background: #fee; color: #c00; }
+  .done { background: #efe; color: #070; }
+  .send-btn { display: block; text-align: center; background: #007AFF; color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: 600; font-size: 15px; }
+  .card.sent .send-btn { background: #aaa; }
+</style>
+</head>
+<body>
+<h1>Lab Outreach Emails</h1>
+<p class="subtitle">Tap each button to open in Mail with everything pre-filled. Just hit Send.</p>
+<p class="counter" id="counter">0 / 56 sent</p>
+
+    <div class="card" id="card-1">
+      <div class="card-header">
+        <div>
+          <div class="prof">Hod Lipson</div>
+          <div class="uni">Columbia University — Creative Machines Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-1">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:hod.lipson@columbia.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Lipson%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Creative%20Machines%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20recent%20work%20on%20Machine%20Metabolism%2C%20robots%20that%20grow%20and%20self-repair%20by%20reusing%20modular%20components%20from%20other%20machines%2C%20captivated%20me%2C%20especially%20because%20I%27ve%20spent%20the%20last%20few%20years%20building%20systems%20that%20bridge%20mechanical%20design%20and%20intelligent%20control.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(1)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-2">
+      <div class="card-header">
+        <div>
+          <div class="prof">Matei Ciocarlie</div>
+          <div class="uni">Columbia University — ROAM Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-2">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:matei.ciocarlie@columbia.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Ciocarlie%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20ROAM%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20bridging%20mechanical%20and%20computational%20intelligence%20in%20robotic%20hands%2C%20particularly%20the%20novel%20hand%20designs%20that%20combine%20tactile%20sensing%20with%20adaptive%20grasping%2C%20resonated%20with%20me%2C%20as%20someone%20who%20has%20spent%20two%20seasons%20designing%20end-effector%20and%20gripping%20mechanisms%20for%20FRC%20and%20VEX%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(2)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-3">
+      <div class="card-header">
+        <div>
+          <div class="prof">Sunil Agrawal</div>
+          <div class="uni">Columbia University — RoAR Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-3">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:sa3077@columbia.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Agrawal%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20RoAR%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20development%20of%20the%20Trunk%20Support%20Trainer%20and%20novel%20perturbation%20paradigms%20for%20balance%20rehabilitation%20fascinates%20me%2C%20because%20it%20sits%20at%20the%20intersection%20of%20mechanical%20design%20and%20human-centered%20engineering%20that%20drives%20my%20own%20work%20building%20force%20feedback%20systems%2C%20including%20a%20sim%20wheel%20with%20haptic%20response%20from%20a%20repurposed%20hoverboard%20motor.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(3)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-4">
+      <div class="card-header">
+        <div>
+          <div class="prof">Boyuan Chen</div>
+          <div class="uni">Duke University — General Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-4">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:boyuan.chen@duke.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Chen%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20General%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20enabling%20robots%20to%20generalize%20learned%20skills%20to%20new%20environments%20using%20multi-sensory%20perception%20captivated%20me%2C%20especially%20because%20I%27ve%20seen%20firsthand%20how%20challenging%20generalization%20is%20when%20adapting%20robot%20designs%20across%20different%20FRC%20and%20VEX%20competition%20seasons.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(4)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-5">
+      <div class="card-header">
+        <div>
+          <div class="prof">Daniela Rus</div>
+          <div class="uni">MIT — Distributed Robotics Lab (CSAIL)</div>
+        </div>
+        <span class="badge unsent" id="badge-5">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rus@csail.mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Rus%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Distributed%20Robotics%20Lab%20%28CSAIL%29%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20pioneering%20work%20on%20self-reconfiguring%20robots%20and%20printable%20robots%20that%20adapt%20their%20morphology%20to%20tasks%20captivated%20me%2C%20as%20someone%20who%20has%20designed%20and%20fabricated%20robotic%20systems%20from%20scratch%2C%20from%20a%206-DOF%20arm%20to%20competition%20robots%20that%20qualified%20for%20FRC%20Worlds.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(5)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-6">
+      <div class="card-header">
+        <div>
+          <div class="prof">Sangbae Kim</div>
+          <div class="uni">MIT — Biomimetic Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-6">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:sangbae@mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Kim%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biomimetic%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20development%20of%20the%20MIT%20Cheetah%20and%20its%20proprioceptive%20actuator%20design%20for%20high-bandwidth%20physical%20interaction%20captivated%20me%2C%20especially%20given%20my%20experience%20designing%20robust%20drive%20systems%20in%20competition%20robotics%2C%20including%20leading%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(6)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-7">
+      <div class="card-header">
+        <div>
+          <div class="prof">Harry Asada</div>
+          <div class="uni">MIT — d&#x27;Arbeloff Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-7">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:asada@mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Asada%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20d%27Arbeloff%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20research%20on%20collaborative%20robotic%20systems%20and%20wearable%20supernumerary%20robotic%20limbs%2C%20exploring%20how%20humans%20and%20machines%20can%20physically%20cooperate%2C%20captivated%20me%2C%20because%20I%27ve%20spent%20years%20at%20the%20intersection%20of%20mechanical%20design%20and%20controls%2C%20building%20everything%20from%20a%206-DOF%20arm%20to%20a%20force%20feedback%20sim%20wheel.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(7)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-8">
+      <div class="card-header">
+        <div>
+          <div class="prof">Kevin Chen</div>
+          <div class="uni">MIT — Soft and Micro Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-8">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:yufengc@mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Chen%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Soft%20and%20Micro%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20multifunctional%20insect-scale%20robots%20and%20high-bandwidth%20soft%20actuators%20for%20microrobot%20locomotion%20captivated%20me%2C%20as%20someone%20deeply%20invested%20in%20the%20mechanical%20design%20challenges%20of%20small-scale%20systems%20through%20competition%20robotics%20and%20personal%20builds%20like%20a%206-DOF%20robotic%20arm.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(8)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-9">
+      <div class="card-header">
+        <div>
+          <div class="prof">Raphael Zufferey</div>
+          <div class="uni">MIT — Bioinspired Aerial-Aquatic Robotics</div>
+        </div>
+        <span class="badge unsent" id="badge-9">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:zufferey@mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Zufferey%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Bioinspired%20Aerial-Aquatic%20Robotics%20as%20a%20summer%20research%20intern.%0A%0AYour%20research%20on%20bioinspired%20methods%20for%20seamless%20aerial%20and%20aquatic%20locomotion%20captivated%20me%2C%20especially%20as%20someone%20passionate%20about%20aerospace%20engineering%20who%20has%20spent%20years%20designing%20dynamic%20mechanical%20systems%20in%20FRC%20%28World%20Championship%20qualifier%29%20and%20VEX%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(9)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-10">
+      <div class="card-header">
+        <div>
+          <div class="prof">Vijay Kumar</div>
+          <div class="uni">UPenn — Kumar Lab / GRASP Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-10">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:kumar@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Kumar%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Kumar%20Lab%20/%20GRASP%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20groundbreaking%20work%20on%20autonomous%20aerial%20robot%20teams%20and%20bio-inspired%20algorithms%20for%20collective%20behavior%20captivated%20me%2C%20especially%20given%20my%20interest%20in%20aerospace%20engineering%20and%20years%20of%20experience%20designing%20and%20building%20competitive%20robotic%20systems.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(10)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-11">
+      <div class="card-header">
+        <div>
+          <div class="prof">Mark Yim</div>
+          <div class="uni">UPenn — ModLab</div>
+        </div>
+        <span class="badge unsent" id="badge-11">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:yim@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Yim%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20ModLab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20modular%20self-reconfiguring%20robots%20that%20can%20change%20their%20shape%20and%20function%20captivated%20me%2C%20because%20the%20interplay%20between%20mechanism%20design%20and%20intelligent%20reconfiguration%20mirrors%20the%20challenges%20I%20love%20tackling%2C%20from%20building%20a%206-DOF%20arm%20to%20designing%20drivetrain%20systems%20in%20FRC.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(11)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-12">
+      <div class="card-header">
+        <div>
+          <div class="prof">Cynthia Sung</div>
+          <div class="uni">UPenn — ScalAR Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-12">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:crsung@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Sung%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20ScalAR%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20computational%20design%20tools%20for%20rapidly%20fabricating%20robots%2C%20bridging%20the%20gap%20between%20digital%20design%20and%20physical%20prototyping%2C%20captivated%20me%2C%20as%20someone%20who%20regularly%20goes%20from%20CAD%20to%20physical%20build%2C%20whether%20for%20a%206-DOF%20robotic%20arm%20or%20competition%20robots%20that%20made%20it%20to%20FRC%20Worlds.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(12)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-13">
+      <div class="card-header">
+        <div>
+          <div class="prof">Aaron Dollar</div>
+          <div class="uni">Yale University — GRAB Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-13">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:aaron.dollar@yale.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Dollar%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20GRAB%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20underactuated%20adaptive%20robot%20hands%20that%20achieve%20versatile%20grasping%20without%20complex%20control%20captivated%20me%2C%20because%20I%27ve%20wrestled%20with%20similar%20mechanical%20design%20tradeoffs%20building%20a%206-DOF%20robotic%20arm%20and%20designing%20end-effector%20mechanisms%20for%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(13)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-14">
+      <div class="card-header">
+        <div>
+          <div class="prof">Brian Scassellati</div>
+          <div class="uni">Yale University — Social Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-14">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:brian.scassellati@yale.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Scassellati%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Social%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20socially%20assistive%20robots%20that%20learn%20and%20adapt%20through%20interaction%20with%20people%20captivated%20me%2C%20because%20my%20experience%20building%20robots%20across%20FRC%2C%20VEX%2C%20and%20personal%20projects%20has%20shown%20me%20how%20compelling%20the%20human-robot%20interface%20can%20be.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(14)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-15">
+      <div class="card-header">
+        <div>
+          <div class="prof">Hadas Kress-Gazit</div>
+          <div class="uni">Cornell University — Verifiable Robotics Research Group</div>
+        </div>
+        <span class="badge unsent" id="badge-15">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:hadaskg@cornell.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Kress-Gazit%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Verifiable%20Robotics%20Research%20Group%20as%20a%20summer%20research%20intern.%0A%0AYour%20research%20on%20automatically%20synthesizing%20correct-by-construction%20robot%20controllers%20from%20high-level%20specifications%20captivated%20me%2C%20especially%20as%20someone%20who%20combines%20programming%20%28Python%20ML%2C%20Java%20USACO%20Silver%29%20with%20hands-on%20robot%20building%20and%20has%20seen%20firsthand%20how%20critical%20reliable%20control%20is.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(15)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-16">
+      <div class="card-header">
+        <div>
+          <div class="prof">Rob Shepherd</div>
+          <div class="uni">Cornell University — Organic Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-16">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rfs247@cornell.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Shepherd%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Organic%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20soft%20robotic%20systems%20with%20embedded%20sensing%20and%20stretchable%20electronics%20captivated%20me%2C%20because%20the%20mechanical%20challenges%20of%20building%20compliant%20yet%20functional%20systems%20align%20with%20the%20hands-on%20design%20work%20I%20love%2C%20from%20fabricating%20a%206-DOF%20arm%20to%20building%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(16)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-17">
+      <div class="card-header">
+        <div>
+          <div class="prof">Anirudha Majumdar</div>
+          <div class="uni">Princeton University — Intelligent Robot Motion Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-17">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ani.majumdar@princeton.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Majumdar%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Intelligent%20Robot%20Motion%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20providing%20safety%20guarantees%20for%20learned%20robotic%20behaviors%2C%20ensuring%20robots%20can%20operate%20reliably%20outside%20controlled%20environments%2C%20captivated%20me%2C%20as%20someone%20who%20has%20programmed%20autonomous%20routines%20in%20competition%20robotics%20%28FRC%20Worlds%29%20and%20applies%20ML%20in%20Python%20alongside%20mechanical%20design.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(17)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-18">
+      <div class="card-header">
+        <div>
+          <div class="prof">Stefanie Tellex</div>
+          <div class="uni">Brown University — Humans to Robots Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-18">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:stefie10@cs.brown.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Tellex%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Humans%20to%20Robots%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20enabling%20robots%20to%20understand%20natural%20language%20commands%20and%20collaborate%20with%20humans%20on%20manipulation%20tasks%20captivated%20me%2C%20because%20my%20experience%20spanning%20both%20software%20%28Python%20ML%2C%20Java%29%20and%20hardware%20%286-DOF%20arm%2C%20competition%20robots%29%20makes%20me%20appreciate%20the%20full-stack%20nature%20of%20this%20challenge.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(18)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-19">
+      <div class="card-header">
+        <div>
+          <div class="prof">Aaron Ames</div>
+          <div class="uni">Caltech — AMBER Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-19">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ames@caltech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Ames%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20AMBER%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20mathematically%20rigorous%20control%20methods%20that%20enable%20bipedal%20robots%20to%20walk%20and%20run%20dynamically%20captivated%20me%2C%20as%20someone%20who%20has%20designed%20mechanical%20drive%20systems%20for%20dynamic%20competition%20robots%20and%20is%20deeply%20interested%20in%20the%20control%20challenges%20of%20legged%20locomotion.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(19)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-20">
+      <div class="card-header">
+        <div>
+          <div class="prof">Soon-Jo Chung</div>
+          <div class="uni">Caltech — CAST Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-20">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:sjchung@caltech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Chung%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20CAST%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20autonomous%20aerospace%20systems%20and%20bio-inspired%20aerial%20vehicle%20design%20captivated%20me%2C%20given%20my%20strong%20interest%20in%20aerospace%20engineering%20and%20hands-on%20experience%20designing%20mechanical%20systems%20for%20competition%20robots%20that%20qualified%20for%20FRC%20Worlds.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(20)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-21">
+      <div class="card-header">
+        <div>
+          <div class="prof">Joel Burdick</div>
+          <div class="uni">Caltech — Robotics &amp; Biosystems Group</div>
+        </div>
+        <span class="badge unsent" id="badge-21">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:jwb@robotics.caltech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Burdick%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Robotics%20%26%20Biosystems%20Group%20as%20a%20summer%20research%20intern.%0A%0AYour%20research%20on%20robotic%20locomotion%20and%20the%20mechanical%20principles%20underlying%20grasping%20and%20manipulation%20captivated%20me%2C%20especially%20as%20someone%20who%20has%20built%20a%206-DOF%20robotic%20arm%20and%20led%20the%20mechanical%20design%20for%20a%20VEX%20State%20Championship%20team.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(21)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-22">
+      <div class="card-header">
+        <div>
+          <div class="prof">Jessy Grizzle</div>
+          <div class="uni">University of Michigan — Bipedal Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-22">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:grizzle@umich.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Grizzle%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Bipedal%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20Cassie%20and%20the%20feedback%20control%20methods%20that%20enable%20dynamic%20bipedal%20locomotion%20captivated%20me%2C%20because%20I%27ve%20spent%20years%20designing%20and%20tuning%20mechanical%20systems%20for%20dynamic%20performance%20in%20FRC%20and%20VEX%20competition%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(22)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-23">
+      <div class="card-header">
+        <div>
+          <div class="prof">Elliott Rouse</div>
+          <div class="uni">University of Michigan — Neurobionics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-23">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ejrouse@umich.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Rouse%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Neurobionics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20development%20of%20powered%20prosthetic%20legs%20and%20bionic%20systems%20that%20seamlessly%20integrate%20with%20human%20movement%20captivated%20me%2C%20as%20someone%20passionate%20about%20the%20intersection%20of%20mechanical%20design%20and%20human%20interaction%2C%20which%20I%27ve%20explored%20through%20projects%20like%20my%20force%20feedback%20sim%20wheel.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(23)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-24">
+      <div class="card-header">
+        <div>
+          <div class="prof">Shai Revzen</div>
+          <div class="uni">University of Michigan — Biolocomotion Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-24">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:shrevzen@umich.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Revzen%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biolocomotion%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20extracting%20locomotion%20principles%20from%20biological%20systems%20using%20data-driven%20methods%20captivated%20me%2C%20especially%20given%20my%20experience%20in%20both%20Python-based%20ML%20and%20hands-on%20mechanical%20design%20for%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(24)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-25">
+      <div class="card-header">
+        <div>
+          <div class="prof">Ram Vasudevan</div>
+          <div class="uni">University of Michigan — ROAHM Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-25">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ramv@umich.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Vasudevan%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20ROAHM%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20reachability-based%20methods%20that%20guarantee%20safe%20robot%20motion%20planning%20in%20real%20time%20captivated%20me%2C%20because%20my%20experience%20programming%20autonomous%20routines%20for%20FRC%20competition%20and%20working%20with%20ML%20in%20Python%20gives%20me%20an%20appreciation%20for%20the%20difficulty%20of%20real-time%20safe%20planning.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(25)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-26">
+      <div class="card-header">
+        <div>
+          <div class="prof">Carmel Majidi</div>
+          <div class="uni">Carnegie Mellon University — Soft Machines Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-26">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:cmajidi@andrew.cmu.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Majidi%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Soft%20Machines%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20pioneering%20work%20on%20liquid%20metal-based%20soft%20electronics%20and%20self-healing%20materials%20for%20soft%20robotics%20captivated%20me%2C%20because%20the%20challenge%20of%20creating%20robots%20that%20are%20mechanically%20intelligent%2C%20not%20just%20computationally%20intelligent%2C%20resonates%20with%20my%20hands-on%20approach%20to%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(26)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-27">
+      <div class="card-header">
+        <div>
+          <div class="prof">Aaron Johnson</div>
+          <div class="uni">Carnegie Mellon University — Robomechanics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-27">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ajohnson@andrew.cmu.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Johnson%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Robomechanics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20enabling%20legged%20robots%20to%20navigate%20challenging%20real-world%20terrain%2C%20from%20deserts%20to%20coal%20mines%2C%20captivated%20me%2C%20as%20someone%20who%20has%20designed%20robots%20for%20the%20unpredictable%20conditions%20of%20FRC%20and%20VEX%20competition%20arenas%20and%20loves%20the%20mechanical%20problem-solving%20involved.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(27)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-28">
+      <div class="card-header">
+        <div>
+          <div class="prof">Matt Travers</div>
+          <div class="uni">Carnegie Mellon University — Biorobotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-28">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:mtravers@andrew.cmu.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Travers%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biorobotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20snake-like%20robots%20that%20can%20navigate%20confined%20and%20complex%20spaces%20using%20modular%20designs%20captivated%20me%2C%20because%20designing%20mechanisms%20that%20perform%20reliably%20in%20constrained%20environments%20is%20a%20challenge%20I%27ve%20tackled%20across%20two%20seasons%20of%20FRC%20and%20VEX%20State%20Championships.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(28)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-29">
+      <div class="card-header">
+        <div>
+          <div class="prof">Victoria Webster-Wood</div>
+          <div class="uni">Carnegie Mellon University — Biohybrid and Organic Robotics Group</div>
+        </div>
+        <span class="badge unsent" id="badge-29">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:vwebster@andrew.cmu.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Webster-Wood%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biohybrid%20and%20Organic%20Robotics%20Group%20as%20a%20summer%20research%20intern.%0A%0AYour%20research%20on%20biohybrid%20robots%20that%20integrate%20living%20tissue%20with%20engineered%20components%20captivated%20me%2C%20because%20it%20represents%20the%20cutting%20edge%20of%20mechanical%20design%2C%20and%20my%20experience%20building%20systems%20from%20scratch%20gives%20me%20an%20appreciation%20for%20the%20fabrication%20challenges%20involved.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(29)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-30">
+      <div class="card-header">
+        <div>
+          <div class="prof">Todd Murphey</div>
+          <div class="uni">Northwestern University — Interactive &amp; Emergent Autonomy Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-30">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:t-murphey@northwestern.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Murphey%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Interactive%20%26%20Emergent%20Autonomy%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20ergodic%20control%20methods%20that%20enable%20robots%20to%20explore%20and%20interact%20based%20on%20information-theoretic%20principles%20captivated%20me%2C%20especially%20as%20someone%20who%20bridges%20software%20%28Python%20ML%2C%20Java%20USACO%20Silver%29%20and%20mechanical%20design%20in%20my%20robotics%20work.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(30)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-31">
+      <div class="card-header">
+        <div>
+          <div class="prof">Kevin Lynch</div>
+          <div class="uni">Northwestern University — NxR Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-31">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:kmlynch@northwestern.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Lynch%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20NxR%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20robot%20manipulation%20and%20locomotion%2C%20and%20your%20influential%20textbook%20on%20modern%20robotics%2C%20captivated%20me%2C%20because%20the%20principles%20you%20teach%20are%20ones%20I%27ve%20applied%20hands-on%2C%20from%20building%20a%206-DOF%20arm%20to%20designing%20mechanisms%20for%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(31)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-32">
+      <div class="card-header">
+        <div>
+          <div class="prof">Mark Cutkosky</div>
+          <div class="uni">Stanford University — Biomimetics &amp; Dextrous Manipulation Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-32">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:cutkosky@stanford.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Cutkosky%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biomimetics%20%26%20Dextrous%20Manipulation%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20gecko-inspired%20adhesive%20systems%20and%20tactile%20sensing%20for%20dexterous%20manipulation%20captivated%20me%2C%20because%20bio-inspired%20mechanical%20design%20is%20exactly%20the%20kind%20of%20creative%20engineering%20that%20drives%20me%2C%20from%20building%20a%206-DOF%20arm%20to%20designing%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(32)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-33">
+      <div class="card-header">
+        <div>
+          <div class="prof">Allison Okamura</div>
+          <div class="uni">Stanford University — CHARM Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-33">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:aokamura@stanford.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Okamura%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20CHARM%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20haptic%20feedback%20in%20surgical%20robotics%20and%20vine%20robots%20for%20search-and-rescue%20captivated%20me%2C%20especially%20because%20I%27ve%20explored%20force%20feedback%20firsthand%20by%20building%20a%20sim%20wheel%20with%20haptic%20response%20from%20a%20repurposed%20hoverboard%20motor.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(33)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-34">
+      <div class="card-header">
+        <div>
+          <div class="prof">Sean Follmer</div>
+          <div class="uni">Stanford University — SHAPE Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-34">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:sfollmer@stanford.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Follmer%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20SHAPE%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20creating%20dynamic%20physical%20displays%20and%20shape-changing%20interfaces%20that%20allow%20people%20to%20touch%20and%20interact%20with%203D%20information%20captivated%20me%2C%20as%20someone%20passionate%20about%20the%20intersection%20of%20mechanical%20design%20and%20user%20interaction%2C%20which%20I%27ve%20explored%20through%20building%20haptic%20systems%20and%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(34)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-35">
+      <div class="card-header">
+        <div>
+          <div class="prof">Monroe Kennedy III</div>
+          <div class="uni">Stanford University — ARM Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-35">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:monroek@stanford.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20III%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20ARM%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20enabling%20robots%20to%20autonomously%20manipulate%20objects%20and%20collaborate%20with%20humans%20in%20unstructured%20environments%20captivated%20me%2C%20because%20my%20experience%20building%20a%206-DOF%20robotic%20arm%20and%20programming%20autonomous%20routines%20for%20FRC%20robots%20has%20given%20me%20firsthand%20appreciation%20for%20these%20challenges.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(35)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-36">
+      <div class="card-header">
+        <div>
+          <div class="prof">Pieter Abbeel</div>
+          <div class="uni">UC Berkeley — Berkeley AI Research Lab (BAIR)</div>
+        </div>
+        <span class="badge unsent" id="badge-36">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:pabbeel@cs.berkeley.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Abbeel%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Berkeley%20AI%20Research%20Lab%20%28BAIR%29%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20pioneering%20work%20on%20enabling%20robots%20to%20learn%20complex%20manipulation%20tasks%20through%20deep%20reinforcement%20learning%20captivated%20me%2C%20especially%20as%20someone%20who%20combines%20Python%20ML%20experience%20with%20hands-on%20robot%20building%20in%20competition%20and%20personal%20projects.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(36)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-37">
+      <div class="card-header">
+        <div>
+          <div class="prof">Ron Fearing</div>
+          <div class="uni">UC Berkeley — Biomimetic Millisystems Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-37">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rfearing@eecs.berkeley.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Fearing%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Biomimetic%20Millisystems%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20insect-scale%20running%20robots%20and%20bio-inspired%20mechanisms%20for%20agile%20millimeter-scale%20locomotion%20captivated%20me%2C%20as%20someone%20who%20loves%20the%20mechanical%20design%20challenges%20of%20building%20robots%20at%20any%20scale%2C%20from%20competition%20robots%20to%20a%20personal%206-DOF%20arm.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(37)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-38">
+      <div class="card-header">
+        <div>
+          <div class="prof">Masayoshi Tomizuka</div>
+          <div class="uni">UC Berkeley — Mechanical Systems Control Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-38">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:tomizuka@berkeley.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Tomizuka%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Mechanical%20Systems%20Control%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20foundational%20work%20on%20mechatronic%20systems%20and%20intelligent%20control%20for%20autonomous%20vehicles%20captivated%20me%2C%20given%20my%20deep%20interest%20in%20mechatronics%20demonstrated%20through%20building%20a%20force%20feedback%20sim%20wheel%20and%20leading%20mechanical%20design%20in%20competition%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(38)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-39">
+      <div class="card-header">
+        <div>
+          <div class="prof">Dennis Hong</div>
+          <div class="uni">UCLA — RoMeLa</div>
+        </div>
+        <span class="badge unsent" id="badge-39">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:dennishong@ucla.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Hong%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20RoMeLa%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20creative%20approach%20to%20humanoid%20robot%20design%20and%20novel%20locomotion%20mechanisms%2C%20from%20DARWIN%20to%20ARTEMIS%2C%20captivated%20me%2C%20because%20the%20philosophy%20of%20solving%20locomotion%20through%20clever%20mechanical%20design%20rather%20than%20brute%20computation%20resonates%20with%20my%20own%20hands-on%20approach%20to%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(39)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-40">
+      <div class="card-header">
+        <div>
+          <div class="prof">Michael Tolley</div>
+          <div class="uni">UC San Diego — Bioinspired Robotics &amp; Design Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-40">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:tolley@ucsd.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Tolley%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Bioinspired%20Robotics%20%26%20Design%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%203D-printed%20soft%20robots%20and%20bioinspired%20mechanical%20designs%20for%20novel%20locomotion%20captivated%20me%2C%20as%20someone%20who%20has%20experience%20in%20both%20CAD-driven%20design%20and%20physical%20fabrication%20across%20personal%20and%20competition%20robotics%20projects.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(40)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-41">
+      <div class="card-header">
+        <div>
+          <div class="prof">Nick Gravish</div>
+          <div class="uni">UC San Diego — Gravish Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-41">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:ngravish@ucsd.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Gravish%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Gravish%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20how%20biological%20locomotion%20principles%20can%20improve%20robot%20movement%20through%20complex%20terrain%20captivated%20me%2C%20especially%20given%20my%20experience%20designing%20drivetrains%20and%20locomotion%20systems%20for%20competition%20robots%20that%20face%20unpredictable%20field%20conditions.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(41)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-42">
+      <div class="card-header">
+        <div>
+          <div class="prof">Mark Spong</div>
+          <div class="uni">UT Dallas — Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-42">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:mspong@utdallas.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Spong%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20foundational%20contributions%20to%20robot%20dynamics%20and%20control%20theory%2C%20which%20underpin%20so%20much%20of%20modern%20robotics%2C%20captivated%20me%2C%20because%20the%20principles%20you%27ve%20developed%20are%20ones%20I%27ve%20applied%20intuitively%20while%20building%20a%206-DOF%20robotic%20arm%20and%20programming%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(42)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-43">
+      <div class="card-header">
+        <div>
+          <div class="prof">Luis Sentis</div>
+          <div class="uni">UT Austin — Human Centered Robotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-43">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:pedestrian@austin.utexas.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Sentis%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Human%20Centered%20Robotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20whole-body%20control%20frameworks%20that%20enable%20humanoid%20robots%20to%20balance%20and%20interact%20with%20their%20environment%20captivated%20me%2C%20as%20someone%20deeply%20interested%20in%20the%20mechanics%20of%20dynamic%20robotic%20systems%2C%20from%20my%20competition%20robotics%20experience%20to%20building%20a%206-DOF%20arm.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(43)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-44">
+      <div class="card-header">
+        <div>
+          <div class="prof">Seth Hutchinson</div>
+          <div class="uni">Georgia Tech — Robot Autonomy &amp; Interactive Learning Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-44">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:seth@gatech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Hutchinson%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Robot%20Autonomy%20%26%20Interactive%20Learning%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20vision-based%20control%20for%20aerial%20robots%20and%20motion%20planning%20under%20uncertainty%20captivated%20me%2C%20given%20my%20passion%20for%20aerospace%20engineering%20and%20years%20of%20hands-on%20experience%20building%20competition%20robots%20that%20require%20real-time%20sensing%20and%20control.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(44)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-45">
+      <div class="card-header">
+        <div>
+          <div class="prof">Ye Zhao</div>
+          <div class="uni">Georgia Tech — LIDAR Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-45">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:yezhao@gatech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Zhao%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20LIDAR%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20enabling%20legged%20robots%20to%20plan%20and%20execute%20multi-contact%20movements%20in%20complex%20environments%20captivated%20me%2C%20as%20someone%20who%20has%20designed%20mechanical%20systems%20for%20dynamic%20tasks%20in%20FRC%20competition%20and%20built%20a%206-DOF%20arm%20for%20versatile%20manipulation.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(45)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-46">
+      <div class="card-header">
+        <div>
+          <div class="prof">Jun Ueda</div>
+          <div class="uni">Georgia Tech — Bio-Robotics &amp; Human Modeling Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-46">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:jun.ueda@me.gatech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Ueda%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Bio-Robotics%20%26%20Human%20Modeling%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20novel%20actuator%20designs%20and%20bio-robotic%20systems%20for%20human-machine%20interaction%20captivated%20me%2C%20given%20my%20hands-on%20experience%20building%20actuated%20systems%2C%20from%20a%20force%20feedback%20sim%20wheel%20to%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(46)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-47">
+      <div class="card-header">
+        <div>
+          <div class="prof">Patricio Vela</div>
+          <div class="uni">Georgia Tech — IVALab</div>
+        </div>
+        <span class="badge unsent" id="badge-47">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:pvela@gatech.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Vela%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20IVALab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20visual%20perception%20and%20autonomous%20navigation%20for%20robotic%20systems%20captivated%20me%2C%20as%20someone%20who%20combines%20coding%20experience%20%28Python%20ML%2C%20Java%20USACO%20Silver%29%20with%20hands-on%20robot%20building.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(47)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-48">
+      <div class="card-header">
+        <div>
+          <div class="prof">Robert Wood</div>
+          <div class="uni">Harvard University — Harvard Microrobotics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-48">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rjwood@seas.harvard.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Wood%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Harvard%20Microrobotics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20pioneering%20creation%20of%20the%20RoboBee%20and%20insect-inspired%20micro%20aerial%20vehicles%20captivated%20me%2C%20especially%20given%20my%20passion%20for%20aerospace%20engineering%20and%20years%20of%20mechanical%20design%20experience%20in%20competition%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(48)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-49">
+      <div class="card-header">
+        <div>
+          <div class="prof">Conor Walsh</div>
+          <div class="uni">Harvard University — Harvard Biodesign Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-49">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:walsh@seas.harvard.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Walsh%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Harvard%20Biodesign%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20development%20of%20soft%20exosuits%20that%20augment%20human%20movement%20using%20textile-based%20actuators%20captivated%20me%2C%20because%20the%20integration%20of%20flexible%20mechanical%20design%20with%20intelligent%20control%20echoes%20the%20full-stack%20engineering%20approach%20I%20take%20in%20my%20own%20projects.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(49)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-50">
+      <div class="card-header">
+        <div>
+          <div class="prof">Nadia Figueroa</div>
+          <div class="uni">UPenn — FIGUEROA Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-50">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:nadiafig@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Figueroa%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20FIGUEROA%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20enabling%20robots%20to%20learn%20manipulation%20skills%20from%20human%20demonstrations%20using%20dynamical%20systems%20captivated%20me%2C%20as%20someone%20who%20bridges%20software%20%28Python%20ML%29%20and%20hardware%20%286-DOF%20arm%2C%20competition%20robots%29%20and%20appreciates%20the%20challenge%20of%20transferring%20skills%20to%20machines.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(50)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-51">
+      <div class="card-header">
+        <div>
+          <div class="prof">Daniel Koditschek</div>
+          <div class="uni">UPenn — Kod*Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-51">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:kod@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Koditschek%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Kod%2ALab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20foundational%20work%20on%20dynamical%20systems%20approaches%20to%20legged%20robot%20locomotion%20and%20template-based%20control%20captivated%20me%2C%20because%20designing%20mechanisms%20that%20exploit%20dynamics%20rather%20than%20fight%20them%20is%20a%20philosophy%20I%27ve%20seen%20pay%20off%20in%20competition%20robotics.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(51)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-52">
+      <div class="card-header">
+        <div>
+          <div class="prof">Michael Posa</div>
+          <div class="uni">UPenn — DAIR Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-52">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:posa@seas.upenn.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Posa%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20DAIR%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20planning%20through%20contact%2C%20enabling%20robots%20to%20reason%20about%20the%20complex%20physics%20of%20pushing%2C%20grasping%2C%20and%20walking%2C%20captivated%20me%2C%20as%20someone%20who%20has%20grappled%20with%20contact%20dynamics%20firsthand%20designing%20gripper%20mechanisms%20and%20drivetrain%20systems%20for%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(52)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-53">
+      <div class="card-header">
+        <div>
+          <div class="prof">Tomas Lozano-Perez</div>
+          <div class="uni">MIT — Learning &amp; Intelligent Systems Group</div>
+        </div>
+        <span class="badge unsent" id="badge-53">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:tlp@csail.mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Lozano-Perez%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Learning%20%26%20Intelligent%20Systems%20Group%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20decades%20of%20foundational%20work%20on%20geometric%20reasoning%20and%20task-and-motion%20planning%20for%20robotic%20manipulation%20captivated%20me%2C%20because%20combining%20algorithmic%20planning%20with%20physical%20robot%20capability%20is%20a%20challenge%20I%20encounter%20in%20both%20my%20coding%20%28Python%20ML%2C%20Java%29%20and%20mechanical%20design%20work.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(53)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-54">
+      <div class="card-header">
+        <div>
+          <div class="prof">Pulkit Agrawal</div>
+          <div class="uni">MIT — Improbable AI Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-54">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:pulkit@mit.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Agrawal%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Improbable%20AI%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20enabling%20robots%20to%20learn%20agile%20locomotion%20and%20dexterous%20manipulation%20through%20trial%20and%20error%20captivated%20me%2C%20especially%20as%20someone%20who%20iterates%20on%20mechanical%20designs%20through%20FRC/VEX%20competition%20cycles%20and%20applies%20ML%20in%20Python.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(54)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-55">
+      <div class="card-header">
+        <div>
+          <div class="prof">Ross Knepper</div>
+          <div class="uni">Cornell University — Robotic Personal Assistants Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-55">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rak@cs.cornell.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Knepper%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Robotic%20Personal%20Assistants%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20work%20on%20robots%20that%20understand%20and%20navigate%20human%20social%20environments%20captivated%20me%2C%20because%20my%20experience%20in%20team-based%20competition%20robotics%20has%20shown%20me%20how%20critical%20communication%20and%20coordination%20are%2C%20even%20between%20humans%20and%20machines.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(55)">Open in Mail ✉️</a>
+    </div>
+    <div class="card" id="card-56">
+      <div class="card-header">
+        <div>
+          <div class="prof">Robert Gregg</div>
+          <div class="uni">University of Michigan — Locomotion &amp; Biomechanics Lab</div>
+        </div>
+        <span class="badge unsent" id="badge-56">Not Sent</span>
+      </div>
+      <a class="send-btn" href="mailto:rdgregg@umich.edu?subject=Rising%20Senior%20with%20Robotics%20Background%20%E2%80%94%20Summer%20Research%20Inquiry&body=Dear%20Professor%20Gregg%2C%0A%0AMy%20name%20is%20Michael%20Xing%20and%20I%27m%20a%20rising%20senior%20at%20Great%20Neck%20South%20High%20School.%20I%27m%20reaching%20out%20to%20express%20my%20strong%20interest%20in%20joining%20the%20Locomotion%20%26%20Biomechanics%20Lab%20as%20a%20summer%20research%20intern.%0A%0AYour%20lab%27s%20research%20on%20control%20systems%20for%20powered%20prosthetic%20legs%20and%20exoskeletons%20that%20enable%20natural%20movement%20captivated%20me%2C%20given%20my%20interest%20in%20human-centered%20mechanical%20systems%2C%20demonstrated%20through%20building%20a%20force%20feedback%20sim%20wheel%20and%20competition%20robots.%20I%20designed%20a%206-DOF%20robotic%20arm%20and%20a%20force%20feedback%20sim%20wheel%20from%20a%20repurposed%20hoverboard%20motor%2C%20led%20my%20VEX%20team%20to%20the%20Southern%20NY%20State%20Championship%20as%20mechanical%20lead%2C%20and%20competed%20in%20FRC%20through%20to%20Worlds.%20I%20also%20have%20prior%20research%20experience%20under%20Professor%20Zhu%20Wei%20at%20SUNY%20Old%20Westbury%20and%20write%20code%20in%20Python%20%28ML%29%20and%20Java%20%28USACO%20Silver%29.%0A%0AI%27m%20available%20full-time%20this%20summer%20and%20happy%20to%20support%20your%20team%20in%20any%20capacity%2C%20prototyping%2C%20CAD%2C%20data%20collection%2C%20or%20running%20experiments.%20I%20would%20love%20the%20chance%20to%20discuss%20further.%0A%0AThank%20you%20for%20your%20time%2C%0AMichael%20Xing%0Amxingny%40gmail.com" onclick="markSent(56)">Open in Mail ✉️</a>
+    </div>
+<script>
+let sent = JSON.parse(localStorage.getItem('sent') || '{}');
+let total = 56;
+function updateCounter() {
+  let c = Object.keys(sent).length;
+  document.getElementById('counter').textContent = c + ' / ' + total + ' sent';
+}
+function markSent(id) {
+  sent[id] = true;
+  localStorage.setItem('sent', JSON.stringify(sent));
+  document.getElementById('card-' + id).classList.add('sent');
+  let b = document.getElementById('badge-' + id);
+  b.textContent = 'Sent ✓';
+  b.className = 'badge done';
+  updateCounter();
+}
+// Restore state
+for (let id in sent) {
+  let card = document.getElementById('card-' + id);
+  if (card) { card.classList.add('sent'); }
+  let b = document.getElementById('badge-' + id);
+  if (b) { b.textContent = 'Sent ✓'; b.className = 'badge done'; }
+}
+updateCounter();
+</script>
+</body>
+</html>
